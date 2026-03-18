@@ -1,20 +1,24 @@
 public class Card1{
-  private int rank;
-  private int suit;
-  public Card1(int currRank, int currSuit){
+  private final int rank;
+  private final int suit;
+  public Card1(int currSuit,int currRank){
     //check condition
     assert isValidRank(currRank) : "InvalidRank";
     assert isValidSuit(currSuit) : "InvalidSuit";
     this.rank = currRank;
     this.suit = currSuit;
   }
+  public int getRank(){
+    return rank;
+  }
+  public int getSuit(){
+    return suit;
+  }
   public static boolean isValidRank(int currRank){
-    if(1 <= currRank && currRank <= 13) return true;
-    return false;
+    return 1 <= currRank && currRank <= 13; 
   }
   public static boolean isValidSuit(int currSuit){
-    if(1 <= currSuit && currSuit <= 4) return true;
-    return false;
+    return 1 <= currSuit && currSuit <= 4; 
   }
   
   public static String rankToString(int currRank){
@@ -65,6 +69,7 @@ public class Card1{
     }
   }
   public static void main(String[] arg){
-    Card1 a = new Card1(9,1);
+    Card1 a = new Card1(3,10); 
+    System.out.println(suitToString(a.getSuit()) + " of " + rankToString(a.getRank()));
   }
 }
